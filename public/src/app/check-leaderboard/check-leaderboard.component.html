@@ -1,0 +1,20 @@
+
+<div>
+        <form (submit)="onCreate()">
+                <h3>Checkin</h3>
+                <div *ngIf="isError">        
+                        <h6 *ngIf="errors.name">{{errors.name.message}}</h6>
+                        <h6 *ngIf="errors.qty">{{errors.qty.message}}</h6>
+                        <h6 *ngIf="errors.price">{{errors.price.message}}</h6>
+                </div>
+                <div *ngIf=(!name.valid)>{{ name.errors | json }}</div>
+                <!-- <p>{{ user | json}}</p> -->
+                <label>Name : </label>
+                <input type="text" name="name" 
+                required 
+                minlength="3" 
+                [(ngModel)]="user.name"
+                #name = "ngModel"/>
+                <input type="submit" name="Checkin Leaderboard" value="Checkin Leaderboard">
+        </form>
+</div>
