@@ -12,18 +12,23 @@ import { CheckLeaderboardComponent } from './check-leaderboard/check-leaderboard
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 // Bootstrap
 import bootstrap from 'bootstrap';
+import { GameComponent } from './game/game.component';
+// Timer
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckLeaderboardComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CountdownModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

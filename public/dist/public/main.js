@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Document</title>\r\n    <!-- <script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@0.4.0/dist/confetti.browser.min.js\"></script> -->\r\n</head>\r\n<body>\r\n    <!-- <canvas id=\"my-canvas\">ddfdf</canvas> -->\r\n    <router-outlet></router-outlet>\r\n</body>\r\n</html>\r\n");
 
 /***/ }),
 
@@ -46,6 +46,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n        <form (submit)=\"onCreate()\">\n                <h3>Checkin</h3>\n                <div *ngIf=\"isError\">        \n                        <h6 *ngIf=\"errors.name\">{{errors.name.message}}</h6>\n                        <h6 *ngIf=\"errors.qty\">{{errors.qty.message}}</h6>\n                        <h6 *ngIf=\"errors.price\">{{errors.price.message}}</h6>\n                </div>\n                <div *ngIf=(!name.valid)>{{ name.errors | json }}</div>\n                <!-- <p>{{ user | json}}</p> -->\n                <label>Name : </label>\n                <input type=\"text\" name=\"name\" \n                required \n                minlength=\"3\" \n                [(ngModel)]=\"user.name\"\n                #name = \"ngModel\"/>\n                <input type=\"submit\" name=\"Checkin Leaderboard\" value=\"Checkin Leaderboard\">\n        </form>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/game/game.component.html":
+/*!********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/game/game.component.html ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<head>\n</head>\n\nGet ready for the game\n<div class=\"game\">\n    <h3>Time Left : <countdown #cd [config]=\"{leftTime: 10, format: 's'}\" (event)=\"stopTimer(score)\"></countdown>\n    </h3>\n    <p>Score : {{score}}</p>\n    <div class=\"header\">\n       <h1>{{ text }}</h1>\n    </div>\n    <div class=\"footer\">\n        <div class=\"block\">\n            <div class=\"red\" (click)=\"red(text)\"></div>\n            <div class=\"blue\" (click)=\"blue(text)\"></div>\n        </div>\n        <div class=\"block\">\n            <div class=\"green\" (click)=\"green(text)\"></div>\n            <div class=\"yellow\" (click)=\"yellow(text)\"></div>\n        </div>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -306,6 +319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./check-leaderboard/check-leaderboard.component */ "./src/app/check-leaderboard/check-leaderboard.component.ts");
 /* harmony import */ var _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./leaderboard/leaderboard.component */ "./src/app/leaderboard/leaderboard.component.ts");
+/* harmony import */ var _game_game_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./game/game.component */ "./src/app/game/game.component.ts");
+
 
 
 
@@ -314,6 +329,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
     { path: 'leaderboard', component: _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_4__["LeaderboardComponent"] },
+    { path: 'game', component: _game_game_component__WEBPACK_IMPORTED_MODULE_5__["GameComponent"] },
     { path: '*', pathMatch: 'full', redirectTo: '/' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -400,6 +416,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./check-leaderboard/check-leaderboard.component */ "./src/app/check-leaderboard/check-leaderboard.component.ts");
 /* harmony import */ var _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./leaderboard/leaderboard.component */ "./src/app/leaderboard/leaderboard.component.ts");
+/* harmony import */ var _game_game_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./game/game.component */ "./src/app/game/game.component.ts");
+/* harmony import */ var ngx_countdown__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-countdown */ "./node_modules/ngx-countdown/fesm2015/ngx-countdown.js");
 
 
 
@@ -412,6 +430,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// Timer
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -419,13 +440,15 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
             _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_8__["CheckLeaderboardComponent"],
-            _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_9__["LeaderboardComponent"]
+            _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_9__["LeaderboardComponent"],
+            _game_game_component__WEBPACK_IMPORTED_MODULE_10__["GameComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+            ngx_countdown__WEBPACK_IMPORTED_MODULE_11__["CountdownModule"],
         ],
         providers: [_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -509,6 +532,148 @@ CheckLeaderboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./check-leaderboard.component.css */ "./src/app/check-leaderboard/check-leaderboard.component.css")).default]
     })
 ], CheckLeaderboardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/game/game.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/game/game.component.css ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n    padding: 0px;\r\n    margin: 0px auto;\r\n}\r\n\r\n.game{\r\n    width: 500px;\r\n    height: 500px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.header {\r\n    height: 300px;\r\n}\r\n\r\n.footer {\r\n    height: 200px;\r\n    width: 500px;\r\n}\r\n\r\n.block {\r\n    display: block;\r\n    height: 100px;\r\n    width: 500px;\r\n    background-color: rgb(199, 199, 219);\r\n}\r\n\r\n.red, .blue, .green, .yellow {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    width: 250px;\r\n    height: 100px;\r\n}\r\n\r\n.red {\r\n    background: red;\r\n}\r\n\r\n.green {\r\n    background: green;\r\n}\r\n\r\n.blue {\r\n    background: blue;\r\n}\r\n\r\n.yellow {\r\n    background: yellow;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    margin: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYix1QkFBdUI7QUFDM0I7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsYUFBYTtJQUNiLFlBQVk7SUFDWixvQ0FBb0M7QUFDeEM7O0FBRUE7SUFDSSxxQkFBcUI7SUFDckIsbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIG1hcmdpbjogMHB4IGF1dG87XHJcbn1cclxuXHJcbi5nYW1le1xyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG4gICAgaGVpZ2h0OiA1MDBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG4uaGVhZGVyIHtcclxuICAgIGhlaWdodDogMzAwcHg7XHJcbn1cclxuXHJcbi5mb290ZXIge1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiA1MDBweDtcclxufVxyXG5cclxuLmJsb2NrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIHdpZHRoOiA1MDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxOTksIDE5OSwgMjE5KTtcclxufVxyXG5cclxuLnJlZCwgLmJsdWUsIC5ncmVlbiwgLnllbGxvdyB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxufVxyXG5cclxuLnJlZCB7XHJcbiAgICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuXHJcbi5ncmVlbiB7XHJcbiAgICBiYWNrZ3JvdW5kOiBncmVlbjtcclxufVxyXG5cclxuLmJsdWUge1xyXG4gICAgYmFja2dyb3VuZDogYmx1ZTtcclxufVxyXG5cclxuLnllbGxvdyB7XHJcbiAgICBiYWNrZ3JvdW5kOiB5ZWxsb3c7XHJcbn1cclxuXHJcbmgxIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbjogYXV0bztcclxufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/game/game.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/game/game.component.ts ***!
+  \****************************************/
+/*! exports provided: GameComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameComponent", function() { return GameComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+let GameComponent = class GameComponent {
+    constructor(_httpService, _route, _router) {
+        this._httpService = _httpService;
+        this._route = _route;
+        this._router = _router;
+        this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
+        this.score = 0;
+    }
+    ngOnInit() {
+        this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
+        this.text = this.random();
+    }
+    random() {
+        const randomtext = this.colors[Math.floor(Math.random() * this.colors.length)];
+        // console.log(randomtext);
+        return randomtext;
+    }
+    red(text) {
+        if (text === 'Red') {
+            this.score = this.score + 1;
+            console.log(this.score);
+            // console.log('reddddd');
+            this.ngOnInit();
+        }
+        else {
+            if (this.score > 0) {
+                this.score = this.score - 1;
+                console.log(this.score);
+            }
+            else {
+                console.log('game over');
+                this._router.navigate(['/gameover']);
+            }
+        }
+    }
+    green(text) {
+        if (text === 'Green') {
+            this.score = this.score + 1;
+            console.log(this.score);
+            // console.log('green');
+            this.ngOnInit();
+        }
+        else {
+            if (this.score > 0) {
+                this.score = this.score - 1;
+                console.log(this.score);
+            }
+            else {
+                console.log('game over');
+                this._router.navigate(['/gameover']);
+            }
+        }
+    }
+    blue(text) {
+        if (text === 'Blue') {
+            this.score = this.score + 1;
+            console.log(this.score);
+            // console.log('blue');
+            this.ngOnInit();
+        }
+        else {
+            if (this.score > 0) {
+                this.score = this.score - 1;
+                console.log(this.score);
+            }
+            else {
+                console.log('game over');
+                this._router.navigate(['/gameover']);
+            }
+        }
+    }
+    yellow(text) {
+        if (text === 'Yellow') {
+            this.score = this.score + 1;
+            console.log(this.score);
+            // console.log('Yellow');
+            this.ngOnInit();
+        }
+        else {
+            if (this.score > 0) {
+                this.score = this.score - 1;
+                console.log(this.score);
+            }
+            else {
+                console.log('game over');
+                this._router.navigate(['/gameover']);
+            }
+        }
+    }
+    stopTimer(score) {
+        console.log('score is ', score);
+        // this._router.navigate(['/gameover']);
+    }
+};
+GameComponent.ctorParameters = () => [
+    { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+];
+GameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-game',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./game.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/game/game.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./game.component.css */ "./src/app/game/game.component.css")).default]
+    })
+], GameComponent);
 
 
 

@@ -1,0 +1,22 @@
+<head>
+</head>
+
+Get ready for the game
+<div class="game">
+    <h3>Time Left : <countdown #cd [config]="{leftTime: 10, format: 's'}" (event)="stopTimer(score)"></countdown>
+    </h3>
+    <p>Score : {{score}}</p>
+    <div class="header">
+       <h1>{{ text }}</h1>
+    </div>
+    <div class="footer">
+        <div class="block">
+            <div class="red" (click)="red(text)"></div>
+            <div class="blue" (click)="blue(text)"></div>
+        </div>
+        <div class="block">
+            <div class="green" (click)="green(text)"></div>
+            <div class="yellow" (click)="yellow(text)"></div>
+        </div>
+    </div>
+</div>
