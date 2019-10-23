@@ -13,8 +13,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 // Bootstrap
 import bootstrap from 'bootstrap';
 import { GameComponent } from './game/game.component';
-// Timer
-import { CountdownModule } from 'ngx-countdown';
+import { ScoreService } from './score.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +27,9 @@ import { CountdownModule } from 'ngx-countdown';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CountdownModule,
-  ],
-  providers: [HttpService],
+    ],
+  providers: [HttpService,
+              ScoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

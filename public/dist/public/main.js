@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n        <form (submit)=\"onCreate()\">\n                <h3>Checkin</h3>\n                <div *ngIf=\"isError\">        \n                        <h6 *ngIf=\"errors.name\">{{errors.name.message}}</h6>\n                        <h6 *ngIf=\"errors.qty\">{{errors.qty.message}}</h6>\n                        <h6 *ngIf=\"errors.price\">{{errors.price.message}}</h6>\n                </div>\n                <div *ngIf=(!name.valid)>{{ name.errors | json }}</div>\n                <!-- <p>{{ user | json}}</p> -->\n                <label>Name : </label>\n                <input type=\"text\" name=\"name\" \n                required \n                minlength=\"3\" \n                [(ngModel)]=\"user.name\"\n                #name = \"ngModel\"/>\n                <input type=\"submit\" name=\"Checkin Leaderboard\" value=\"Checkin Leaderboard\">\n        </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n        <form (submit)=\"onCreate()\">\n                <h1>{{score}}</h1>\n                <div *ngIf=\"isError\">        \n                        <h6 *ngIf=\"errors.name\">{{errors.name.message}}</h6>\n                        <h6 *ngIf=\"errors.qty\">{{errors.qty.message}}</h6>\n                        <h6 *ngIf=\"errors.price\">{{errors.price.message}}</h6>\n                </div>\n                <!-- <div *ngIf=(!name.valid)>{{ name.errors | json }}</div> -->\n                <!-- <p>{{ user | json}}</p> -->\n                <label>Name : </label>\n                <input type=\"text\" name=\"name\" \n                required \n                minlength=\"3\" \n                [(ngModel)]=\"user.name\"\n                #name = \"ngModel\"/>\n                <input type=\"submit\" name=\"Checkin Leaderboard\" value=\"Checkin Leaderboard\">\n                <button [routerLink]=\"['/game']\" >Try Again!</button>\n        </form>\n</div>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<head>\n</head>\n\nGet ready for the game\n<div class=\"game\">\n    <h3>Time Left : <countdown #cd [config]=\"{leftTime: 10, format: 's'}\" (event)=\"stopTimer(score)\"></countdown>\n    </h3>\n    <p>Score : {{score}}</p>\n    <div class=\"header\">\n       <h1>{{ text }}</h1>\n    </div>\n    <div class=\"footer\">\n        <div class=\"block\">\n            <div class=\"red\" (click)=\"red(text)\"></div>\n            <div class=\"blue\" (click)=\"blue(text)\"></div>\n        </div>\n        <div class=\"block\">\n            <div class=\"green\" (click)=\"green(text)\"></div>\n            <div class=\"yellow\" (click)=\"yellow(text)\"></div>\n        </div>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<head>\n    <!-- Latest compiled and minified CSS -->    \n</head>\n\n<div class=\"game\">\n    <div class=\"top\">\n        <h3 class=\"display_inline\">{{timer}}</h3>\n        <h3 class=\"display_inline right\">Score : {{score}}</h3>\n    </div>\n    <div class=\"header\">     \n        <h1>{{ text }}</h1>\n    </div>\n    <div class=\"footer\">\n        <div class=\"block\">\n            <div class=\"red\" (click)=\"red(text)\"></div>\n            <div class=\"blue\" (click)=\"blue(text)\"></div>\n        </div>\n        <div class=\"block\">\n            <div class=\"green\" (click)=\"green(text)\"></div>\n            <div class=\"yellow\" (click)=\"yellow(text)\"></div>\n        </div>\n    </div>\n</div>\n\n\n\n<!-- <div class=\"container\">\n        <h2>Modal Example</h2>\n        <!-- Trigger the modal with a button -->\n        <!-- <button type=\"button\" class=\"btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#myModal\">Open Modal</button> -->\n      \n        <!-- Modal -->\n        <!-- <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\n          <div class=\"modal-dialog\"> -->\n          \n            <!-- Modal content-->\n            <!-- <div class=\"modal-content\">\n              <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                <h4 class=\"modal-title\">Modal Header</h4>\n              </div>\n              <div class=\"modal-body\">\n                <p>Some text in the modal.</p>\n              </div>\n              <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n              </div>\n            </div>\n            \n          </div> -->\n        <!-- </div> -->\n\n\n");
 
 /***/ }),
 
@@ -330,6 +330,7 @@ const routes = [
     { path: '', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
     { path: 'leaderboard', component: _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_4__["LeaderboardComponent"] },
     { path: 'game', component: _game_game_component__WEBPACK_IMPORTED_MODULE_5__["GameComponent"] },
+    { path: 'game/:score', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
     { path: '*', pathMatch: 'full', redirectTo: '/' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -417,7 +418,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./check-leaderboard/check-leaderboard.component */ "./src/app/check-leaderboard/check-leaderboard.component.ts");
 /* harmony import */ var _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./leaderboard/leaderboard.component */ "./src/app/leaderboard/leaderboard.component.ts");
 /* harmony import */ var _game_game_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./game/game.component */ "./src/app/game/game.component.ts");
-/* harmony import */ var ngx_countdown__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-countdown */ "./node_modules/ngx-countdown/fesm2015/ngx-countdown.js");
+/* harmony import */ var _score_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./score.service */ "./src/app/score.service.ts");
 
 
 
@@ -431,7 +432,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// Timer
 
 let AppModule = class AppModule {
 };
@@ -448,9 +448,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            ngx_countdown__WEBPACK_IMPORTED_MODULE_11__["CountdownModule"],
         ],
-        providers: [_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"]],
+        providers: [_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"],
+            _score_service__WEBPACK_IMPORTED_MODULE_11__["ScoreService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })
 ], AppModule);
@@ -468,7 +468,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\r\n*{\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\ninput[type=text], select {\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n  }\r\ninput[type=submit] {\r\n    width: 100%;\r\n    background-color: #4CAF50;\r\n    color: white;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n  }\r\ninput[type=submit]:hover {\r\n    background-color: #45a049;\r\n  }\r\nform {\r\n      width: 30%;\r\n      margin: 10px auto;\r\n      background-color: #f2f2f2;\r\n      padding: 20px;\r\n\r\n  }\r\ndiv {\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\r\n  }\r\nh3 {\r\n      text-align: center;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hlY2stbGVhZGVyYm9hcmQvY2hlY2stbGVhZGVyYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwyRUFBMkU7QUFDM0U7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmO0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixxQkFBcUI7SUFDckIsc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixzQkFBc0I7RUFDeEI7QUFFQTtJQUNFLFdBQVc7SUFDWCx5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2IsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixlQUFlO0VBQ2pCO0FBRUE7SUFDRSx5QkFBeUI7RUFDM0I7QUFFQTtNQUNJLFVBQVU7TUFDVixpQkFBaUI7TUFDakIseUJBQXlCO01BQ3pCLGFBQWE7O0VBRWpCO0FBRUE7SUFDRSxpQkFBaUI7SUFDakIsb0JBQW9CO0VBQ3RCO0FBRUE7TUFDSSxrQkFBa0I7RUFDdEIiLCJmaWxlIjoic3JjL2FwcC9jaGVjay1sZWFkZXJib2FyZC9jaGVjay1sZWFkZXJib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoJ2h0dHBzOi8vdW5wa2cuY29tL2Jvb3RzdHJhcEAzLjMuNy9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcycpO1xyXG4qe1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9dGV4dF0sIHNlbGVjdCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDEycHggMjBweDtcclxuICAgIG1hcmdpbjogOHB4IDA7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICB9XHJcbiAgXHJcbiAgaW5wdXRbdHlwZT1zdWJtaXRdIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzRDQUY1MDtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHBhZGRpbmc6IDE0cHggMjBweDtcclxuICAgIG1hcmdpbjogOHB4IDA7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG4gIFxyXG4gIGlucHV0W3R5cGU9c3VibWl0XTpob3ZlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDVhMDQ5O1xyXG4gIH1cclxuXHJcbiAgZm9ybSB7XHJcbiAgICAgIHdpZHRoOiAzMCU7XHJcbiAgICAgIG1hcmdpbjogMTBweCBhdXRvO1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjJmMmYyO1xyXG4gICAgICBwYWRkaW5nOiAyMHB4O1xyXG5cclxuICB9XHJcbiAgXHJcbiAgZGl2IHtcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDIwcHg7XHJcbiAgfVxyXG5cclxuICBoMyB7XHJcbiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\r\n*{\r\n    padding: 0px;\r\n    margin: 0px;\r\n}\r\ninput[type=text], select {\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    margin: 8px 0;\r\n    display: inline-block;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n  }\r\ninput[type=submit], button {\r\n    width: 100%;\r\n    background-color: #4CAF50;\r\n    color: white;\r\n    padding: 14px 20px;\r\n    margin: 8px 0;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n  }\r\ninput[type=submit]:hover, button {\r\n    background-color: #45a049;\r\n  }\r\nform {\r\n      width: 30%;\r\n      margin: 10px auto;\r\n      background-color: #f2f2f2;\r\n      padding: 20px;\r\n  }\r\ndiv {\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\r\n  }\r\nh3, h1 {\r\n      text-align: center;\r\n  }\r\n@media only screen and (max-width: 700px) {\r\n    /* we will set these stylings only if the device is a screen with a width of 480px or less */\r\n    form {\r\n        width: 100%;\r\n        margin: 0px;\r\n    }\r\n    div {\r\n      padding: 0px;\r\n    }\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hlY2stbGVhZGVyYm9hcmQvY2hlY2stbGVhZGVyYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwyRUFBMkU7QUFDM0U7SUFDSSxZQUFZO0lBQ1osV0FBVztBQUNmO0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixxQkFBcUI7SUFDckIsc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixzQkFBc0I7RUFDeEI7QUFFQTtJQUNFLFdBQVc7SUFDWCx5QkFBeUI7SUFDekIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2IsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixlQUFlO0VBQ2pCO0FBRUE7SUFDRSx5QkFBeUI7RUFDM0I7QUFFQTtNQUNJLFVBQVU7TUFDVixpQkFBaUI7TUFDakIseUJBQXlCO01BQ3pCLGFBQWE7RUFDakI7QUFFQTtJQUNFLGlCQUFpQjtJQUNqQixvQkFBb0I7RUFDdEI7QUFFQTtNQUNJLGtCQUFrQjtFQUN0QjtBQUVBO0lBQ0UsNEZBQTRGO0lBQzVGO1FBQ0ksV0FBVztRQUNYLFdBQVc7SUFDZjtJQUNBO01BQ0UsWUFBWTtJQUNkO0VBQ0YiLCJmaWxlIjoic3JjL2FwcC9jaGVjay1sZWFkZXJib2FyZC9jaGVjay1sZWFkZXJib2FyZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoJ2h0dHBzOi8vdW5wa2cuY29tL2Jvb3RzdHJhcEAzLjMuNy9kaXN0L2Nzcy9ib290c3RyYXAubWluLmNzcycpO1xyXG4qe1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9dGV4dF0sIHNlbGVjdCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDEycHggMjBweDtcclxuICAgIG1hcmdpbjogOHB4IDA7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICB9XHJcbiAgXHJcbiAgaW5wdXRbdHlwZT1zdWJtaXRdLCBidXR0b24ge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNENBRjUwO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgcGFkZGluZzogMTRweCAyMHB4O1xyXG4gICAgbWFyZ2luOiA4cHggMDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICB9XHJcbiAgXHJcbiAgaW5wdXRbdHlwZT1zdWJtaXRdOmhvdmVyLCBidXR0b24ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzQ1YTA0OTtcclxuICB9XHJcblxyXG4gIGZvcm0ge1xyXG4gICAgICB3aWR0aDogMzAlO1xyXG4gICAgICBtYXJnaW46IDEwcHggYXV0bztcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2YyZjJmMjtcclxuICAgICAgcGFkZGluZzogMjBweDtcclxuICB9XHJcbiAgXHJcbiAgZGl2IHtcclxuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDIwcHg7XHJcbiAgfVxyXG5cclxuICBoMywgaDEge1xyXG4gICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgfVxyXG5cclxuICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgICAvKiB3ZSB3aWxsIHNldCB0aGVzZSBzdHlsaW5ncyBvbmx5IGlmIHRoZSBkZXZpY2UgaXMgYSBzY3JlZW4gd2l0aCBhIHdpZHRoIG9mIDQ4MHB4IG9yIGxlc3MgKi9cclxuICAgIGZvcm0ge1xyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICAgIG1hcmdpbjogMHB4O1xyXG4gICAgfVxyXG4gICAgZGl2IHtcclxuICAgICAgcGFkZGluZzogMHB4O1xyXG4gICAgfVxyXG4gIH0iXX0= */");
 
 /***/ }),
 
@@ -485,27 +485,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _score_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../score.service */ "./src/app/score.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 
 
 // Dependency injection
 
 
+
 let CheckLeaderboardComponent = class CheckLeaderboardComponent {
-    constructor(_httpService, _route, _router) {
+    constructor(_httpService, _route, _router, _scoreService) {
         this._httpService = _httpService;
         this._route = _route;
         this._router = _router;
+        this._scoreService = _scoreService;
         this.isError = false;
     }
     ngOnInit() {
         this.user = { name: '', score: '' };
+        this.score = this._scoreService.getScore();
     }
     onCreate() {
         console.log(this.user);
-        const random = Math.floor((Math.random() * 10) + 1);
-        console.log(random);
-        this.user.score = random;
+        // const random = Math.floor((Math.random() * 10) + 1);
+        // console.log(random);
+        // this.user.score = random;
+        this.user.score = this.score;
         const observable = this._httpService.create(this.user);
         observable.subscribe((data) => {
             console.log('data inserted');
@@ -522,8 +527,9 @@ let CheckLeaderboardComponent = class CheckLeaderboardComponent {
 };
 CheckLeaderboardComponent.ctorParameters = () => [
     { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _score_service__WEBPACK_IMPORTED_MODULE_3__["ScoreService"] }
 ];
 CheckLeaderboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -546,7 +552,7 @@ CheckLeaderboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n    padding: 0px;\r\n    margin: 0px auto;\r\n}\r\n\r\n.game{\r\n    width: 500px;\r\n    height: 500px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.header {\r\n    height: 300px;\r\n}\r\n\r\n.footer {\r\n    height: 200px;\r\n    width: 500px;\r\n}\r\n\r\n.block {\r\n    display: block;\r\n    height: 100px;\r\n    width: 500px;\r\n    background-color: rgb(199, 199, 219);\r\n}\r\n\r\n.red, .blue, .green, .yellow {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    width: 250px;\r\n    height: 100px;\r\n}\r\n\r\n.red {\r\n    background: red;\r\n}\r\n\r\n.green {\r\n    background: green;\r\n}\r\n\r\n.blue {\r\n    background: blue;\r\n}\r\n\r\n.yellow {\r\n    background: yellow;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    margin: auto;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLGFBQWE7SUFDYix1QkFBdUI7QUFDM0I7O0FBRUE7SUFDSSxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsYUFBYTtJQUNiLFlBQVk7SUFDWixvQ0FBb0M7QUFDeEM7O0FBRUE7SUFDSSxxQkFBcUI7SUFDckIsbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIG1hcmdpbjogMHB4IGF1dG87XHJcbn1cclxuXHJcbi5nYW1le1xyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG4gICAgaGVpZ2h0OiA1MDBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG4uaGVhZGVyIHtcclxuICAgIGhlaWdodDogMzAwcHg7XHJcbn1cclxuXHJcbi5mb290ZXIge1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiA1MDBweDtcclxufVxyXG5cclxuLmJsb2NrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIHdpZHRoOiA1MDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigxOTksIDE5OSwgMjE5KTtcclxufVxyXG5cclxuLnJlZCwgLmJsdWUsIC5ncmVlbiwgLnllbGxvdyB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxufVxyXG5cclxuLnJlZCB7XHJcbiAgICBiYWNrZ3JvdW5kOiByZWQ7XHJcbn1cclxuXHJcbi5ncmVlbiB7XHJcbiAgICBiYWNrZ3JvdW5kOiBncmVlbjtcclxufVxyXG5cclxuLmJsdWUge1xyXG4gICAgYmFja2dyb3VuZDogYmx1ZTtcclxufVxyXG5cclxuLnllbGxvdyB7XHJcbiAgICBiYWNrZ3JvdW5kOiB5ZWxsb3c7XHJcbn1cclxuXHJcbmgxIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbjogYXV0bztcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("* {\r\n    padding: 0px;\r\n    margin: 0px auto;\r\n}\r\n\r\n.game{\r\n    width: 100%;\r\n    height: 100%;\r\n    max-width: 500px;\r\n    /* border: 1px solid black; */\r\n}\r\n\r\n.header {\r\n    height: 50%;\r\n    /* background-color: brown; */\r\n}\r\n\r\n.footer {\r\n    height: 40%;\r\n    width: 100%;\r\n    max-width: 500px;\r\n    position: fixed;\r\n    bottom: 0px;\r\n}\r\n\r\n.block {\r\n    display: block;\r\n    height: 50%;\r\n    width: 100%;\r\n    max-width: 500px;\r\n    background-color: rgb(199, 199, 219);\r\n}\r\n\r\n.red, .blue, .green, .yellow {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    width: 50%;\r\n    height: 100%;\r\n}\r\n\r\n.red {\r\n    background: #FD3359;\r\n}\r\n\r\n.green {\r\n    background: #1c9c73;\r\n}\r\n\r\n.blue {\r\n    background: #21BDFF;\r\n}\r\n\r\n.yellow {\r\n    background: #F4D302;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    margin: 50% auto;\r\n}\r\n\r\n.top {\r\n    height: 10%;\r\n    width: 100%;\r\n}\r\n\r\n.display_inline {\r\n    display: inline-block;\r\n    vertical-align: top;\r\n    width: 50%;\r\n    padding: 2%;\r\n}\r\n\r\n.right {\r\n    -moz-text-align-last: end;\r\n         text-align-last: end;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZ2FtZS9nYW1lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksV0FBVztJQUNYLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsNkJBQTZCO0FBQ2pDOztBQUVBO0lBQ0ksV0FBVztJQUNYLDZCQUE2QjtBQUNqQzs7QUFFQTtJQUNJLFdBQVc7SUFDWCxXQUFXO0lBQ1gsZ0JBQWdCO0lBQ2hCLGVBQWU7SUFDZixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsV0FBVztJQUNYLFdBQVc7SUFDWCxnQkFBZ0I7SUFDaEIsb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0kscUJBQXFCO0lBQ3JCLG1CQUFtQjtJQUNuQixVQUFVO0lBQ1YsWUFBWTtBQUNoQjs7QUFFQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsV0FBVztBQUNmOztBQUVBO0lBQ0kscUJBQXFCO0lBQ3JCLG1CQUFtQjtJQUNuQixVQUFVO0lBQ1YsV0FBVztBQUNmOztBQUVBO0lBQ0kseUJBQW9CO1NBQXBCLG9CQUFvQjtBQUN4QiIsImZpbGUiOiJzcmMvYXBwL2dhbWUvZ2FtZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiKiB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBtYXJnaW46IDBweCBhdXRvO1xyXG59XHJcblxyXG4uZ2FtZXtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgbWF4LXdpZHRoOiA1MDBweDtcclxuICAgIC8qIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrOyAqL1xyXG59XHJcblxyXG4uaGVhZGVyIHtcclxuICAgIGhlaWdodDogNTAlO1xyXG4gICAgLyogYmFja2dyb3VuZC1jb2xvcjogYnJvd247ICovXHJcbn1cclxuXHJcbi5mb290ZXIge1xyXG4gICAgaGVpZ2h0OiA0MCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1heC13aWR0aDogNTAwcHg7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBib3R0b206IDBweDtcclxufVxyXG5cclxuLmJsb2NrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgaGVpZ2h0OiA1MCU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1heC13aWR0aDogNTAwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMTk5LCAxOTksIDIxOSk7XHJcbn1cclxuXHJcbi5yZWQsIC5ibHVlLCAuZ3JlZW4sIC55ZWxsb3cge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcclxuICAgIHdpZHRoOiA1MCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5yZWQge1xyXG4gICAgYmFja2dyb3VuZDogI0ZEMzM1OTtcclxufVxyXG5cclxuLmdyZWVuIHtcclxuICAgIGJhY2tncm91bmQ6ICMxYzljNzM7XHJcbn1cclxuXHJcbi5ibHVlIHtcclxuICAgIGJhY2tncm91bmQ6ICMyMUJERkY7XHJcbn1cclxuXHJcbi55ZWxsb3cge1xyXG4gICAgYmFja2dyb3VuZDogI0Y0RDMwMjtcclxufVxyXG5cclxuaDEge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luOiA1MCUgYXV0bztcclxufVxyXG5cclxuLnRvcCB7XHJcbiAgICBoZWlnaHQ6IDEwJTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4uZGlzcGxheV9pbmxpbmUge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcclxuICAgIHdpZHRoOiA1MCU7XHJcbiAgICBwYWRkaW5nOiAyJTtcclxufVxyXG5cclxuLnJpZ2h0IHtcclxuICAgIHRleHQtYWxpZ24tbGFzdDogZW5kO1xyXG59XHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -564,108 +570,100 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _score_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../score.service */ "./src/app/score.service.ts");
+
 
 
 
 
 let GameComponent = class GameComponent {
-    constructor(_httpService, _route, _router) {
+    constructor(_httpService, _route, _router, _scoreService) {
         this._httpService = _httpService;
         this._route = _route;
         this._router = _router;
+        this._scoreService = _scoreService;
         this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
         this.score = 0;
+        this.timer = 0;
     }
     ngOnInit() {
         this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
         this.text = this.random();
+        if (this.timer === 0) {
+            this.countdown();
+        }
     }
     random() {
         const randomtext = this.colors[Math.floor(Math.random() * this.colors.length)];
-        // console.log(randomtext);
         return randomtext;
     }
     red(text) {
         if (text === 'Red') {
             this.score = this.score + 1;
             console.log(this.score);
-            // console.log('reddddd');
             this.ngOnInit();
         }
         else {
-            if (this.score > 0) {
-                this.score = this.score - 1;
-                console.log(this.score);
-            }
-            else {
-                console.log('game over');
-                this._router.navigate(['/gameover']);
-            }
+            console.log('game over');
+            this._scoreService.postScore(this.score);
+            this._router.navigate(['/']);
         }
     }
     green(text) {
         if (text === 'Green') {
             this.score = this.score + 1;
             console.log(this.score);
-            // console.log('green');
             this.ngOnInit();
         }
         else {
-            if (this.score > 0) {
-                this.score = this.score - 1;
-                console.log(this.score);
-            }
-            else {
-                console.log('game over');
-                this._router.navigate(['/gameover']);
-            }
+            console.log('game over');
+            this._scoreService.postScore(this.score);
+            this._router.navigate(['/']);
         }
     }
     blue(text) {
         if (text === 'Blue') {
             this.score = this.score + 1;
             console.log(this.score);
-            // console.log('blue');
             this.ngOnInit();
         }
         else {
-            if (this.score > 0) {
-                this.score = this.score - 1;
-                console.log(this.score);
-            }
-            else {
-                console.log('game over');
-                this._router.navigate(['/gameover']);
-            }
+            console.log('game over');
+            this._scoreService.postScore(this.score);
+            this._router.navigate(['/']);
         }
     }
     yellow(text) {
         if (text === 'Yellow') {
             this.score = this.score + 1;
             console.log(this.score);
-            // console.log('Yellow');
             this.ngOnInit();
         }
         else {
-            if (this.score > 0) {
-                this.score = this.score - 1;
-                console.log(this.score);
-            }
-            else {
-                console.log('game over');
-                this._router.navigate(['/gameover']);
-            }
+            console.log('game over');
+            this._scoreService.postScore(this.score);
+            this._router.navigate(['/']);
         }
     }
-    stopTimer(score) {
-        console.log('score is ', score);
-        // this._router.navigate(['/gameover']);
+    countdown() {
+        console.log('*******', this.timer);
+        this.interval = setInterval(() => {
+            if (this.timer !== 10) {
+                this.timer = this.timer + 1;
+            }
+            else {
+                clearInterval(this.interval);
+                this._scoreService.postScore(this.score);
+                this._router.navigate(['/']);
+            }
+        }, 1000);
     }
 };
 GameComponent.ctorParameters = () => [
     { type: _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _score_service__WEBPACK_IMPORTED_MODULE_4__["ScoreService"] }
 ];
 GameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -729,7 +727,7 @@ HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\r\n\r\ntable {\r\n    border-collapse: collapse;\r\n    width: 500px;\r\n    margin: 0px auto;\r\n  }\r\n\r\nth, td {\r\n    text-align: center;\r\n    padding: 8px;\r\n  }\r\n\r\ntr:nth-child(even){background-color: #f2f2f2}\r\n\r\nth {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n  }\r\n\r\nh1{\r\n    text-align: center;\r\n  }\r\n  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGVhZGVyYm9hcmQvbGVhZGVyYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwyRUFBMkU7O0FBRTNFO0lBQ0kseUJBQXlCO0lBQ3pCLFlBQVk7SUFDWixnQkFBZ0I7RUFDbEI7O0FBRUE7SUFDRSxrQkFBa0I7SUFDbEIsWUFBWTtFQUNkOztBQUVBLG1CQUFtQix5QkFBeUI7O0FBRTVDO0lBQ0UseUJBQXlCO0lBQ3pCLFlBQVk7RUFDZDs7QUFFQTtJQUNFLGtCQUFrQjtFQUNwQiIsImZpbGUiOiJzcmMvYXBwL2xlYWRlcmJvYXJkL2xlYWRlcmJvYXJkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybCgnaHR0cHM6Ly91bnBrZy5jb20vYm9vdHN0cmFwQDMuMy43L2Rpc3QvY3NzL2Jvb3RzdHJhcC5taW4uY3NzJyk7XHJcblxyXG50YWJsZSB7XHJcbiAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG4gICAgbWFyZ2luOiAwcHggYXV0bztcclxuICB9XHJcbiAgXHJcbiAgdGgsIHRkIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmc6IDhweDtcclxuICB9XHJcbiAgXHJcbiAgdHI6bnRoLWNoaWxkKGV2ZW4pe2JhY2tncm91bmQtY29sb3I6ICNmMmYyZjJ9XHJcbiAgXHJcbiAgdGgge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzRDQUY1MDtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICB9XHJcblxyXG4gIGgxe1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIH1cclxuICAiXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("/* @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css'); */\r\n\r\ntable {\r\n    border-collapse: collapse;\r\n    width: 50%;\r\n    margin: 0px auto;\r\n  }\r\n\r\nth, td {\r\n    text-align: center;\r\n    padding: 8px;\r\n  }\r\n\r\ntr:nth-child(even){background-color: #f2f2f2}\r\n\r\nth {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n  }\r\n\r\nh1{\r\n    text-align: center;\r\n  }\r\n\r\n@media only screen and (max-width: 700px) {\r\n    /* we will set these stylings only if the device is a screen with a width of 480px or less */\r\n    table {\r\n        width: 100%;\r\n    }\r\n  }\r\n  \r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGVhZGVyYm9hcmQvbGVhZGVyYm9hcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxpRkFBaUY7O0FBRWpGO0lBQ0kseUJBQXlCO0lBQ3pCLFVBQVU7SUFDVixnQkFBZ0I7RUFDbEI7O0FBRUE7SUFDRSxrQkFBa0I7SUFDbEIsWUFBWTtFQUNkOztBQUVBLG1CQUFtQix5QkFBeUI7O0FBRTVDO0lBQ0UseUJBQXlCO0lBQ3pCLFlBQVk7RUFDZDs7QUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7QUFFQTtJQUNFLDRGQUE0RjtJQUM1RjtRQUNJLFdBQVc7SUFDZjtFQUNGIiwiZmlsZSI6InNyYy9hcHAvbGVhZGVyYm9hcmQvbGVhZGVyYm9hcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEBpbXBvcnQgdXJsKCdodHRwczovL3VucGtnLmNvbS9ib290c3RyYXBAMy4zLjcvZGlzdC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MnKTsgKi9cclxuXHJcbnRhYmxlIHtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgICB3aWR0aDogNTAlO1xyXG4gICAgbWFyZ2luOiAwcHggYXV0bztcclxuICB9XHJcbiAgXHJcbiAgdGgsIHRkIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHBhZGRpbmc6IDhweDtcclxuICB9XHJcbiAgXHJcbiAgdHI6bnRoLWNoaWxkKGV2ZW4pe2JhY2tncm91bmQtY29sb3I6ICNmMmYyZjJ9XHJcbiAgXHJcbiAgdGgge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzRDQUY1MDtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICB9XHJcblxyXG4gIGgxe1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIH1cclxuXHJcbiAgQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xyXG4gICAgLyogd2Ugd2lsbCBzZXQgdGhlc2Ugc3R5bGluZ3Mgb25seSBpZiB0aGUgZGV2aWNlIGlzIGEgc2NyZWVuIHdpdGggYSB3aWR0aCBvZiA0ODBweCBvciBsZXNzICovXHJcbiAgICB0YWJsZSB7XHJcbiAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICB9XHJcbiAgfVxyXG4gICJdfQ== */");
 
 /***/ }),
 
@@ -786,6 +784,48 @@ LeaderboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./leaderboard.component.css */ "./src/app/leaderboard/leaderboard.component.css")).default]
     })
 ], LeaderboardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/score.service.ts":
+/*!**********************************!*\
+  !*** ./src/app/score.service.ts ***!
+  \**********************************/
+/*! exports provided: ScoreService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScoreService", function() { return ScoreService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let ScoreService = class ScoreService {
+    constructor(_http) {
+        this._http = _http;
+    }
+    postScore(score) {
+        this.session = score;
+        console.log('Final score', score);
+        return this.session;
+    }
+    getScore() {
+        return this.session;
+    }
+};
+ScoreService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+ScoreService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ScoreService);
 
 
 

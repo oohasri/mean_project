@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '',  component: CheckLeaderboardComponent},
   { path: 'leaderboard', component: LeaderboardComponent},
   { path: 'game', component: GameComponent},
+  { path: 'game/:score' , component: CheckLeaderboardComponent},
   { path: '*', pathMatch: 'full', redirectTo: '/'}
 ];
 
