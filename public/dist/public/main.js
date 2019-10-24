@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n        <form (submit)=\"onCreate()\">\n                <h1>{{score}}</h1>\n                <div *ngIf=\"isError\">        \n                        <h6 *ngIf=\"errors.name\">{{errors.name.message}}</h6>\n                        <h6 *ngIf=\"errors.qty\">{{errors.qty.message}}</h6>\n                        <h6 *ngIf=\"errors.price\">{{errors.price.message}}</h6>\n                </div>\n                <!-- <div *ngIf=(!name.valid)>{{ name.errors | json }}</div> -->\n                <!-- <p>{{ user | json}}</p> -->\n                <label>Name : </label>\n                <input type=\"text\" name=\"name\" \n                required \n                minlength=\"3\" \n                [(ngModel)]=\"user.name\"\n                #name = \"ngModel\"/>\n                <input type=\"submit\" name=\"Checkin Leaderboard\" value=\"Checkin Leaderboard\">\n                <button [routerLink]=\"['/game']\" >Try Again!</button>\n        </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div>\n        <form (submit)=\"onCreate()\">\n                <h1>{{score}}</h1>\n                <div *ngIf=\"isError\">        \n                        <h6 *ngIf=\"errors.name\">{{errors.name.message}}</h6>\n                        <h6 *ngIf=\"errors.qty\">{{errors.qty.message}}</h6>\n                        <h6 *ngIf=\"errors.price\">{{errors.price.message}}</h6>\n                </div>\n                <!-- <div *ngIf=(!name.valid)>{{ name.errors | json }}</div> -->\n                <!-- <p>{{ user | json}}</p> -->\n                <label>Name : </label>\n                <input type=\"text\" name=\"name\" \n                required \n                minlength=\"3\" \n                [(ngModel)]=\"user.name\"\n                #name = \"ngModel\"/>\n                <input type=\"submit\" name=\"Checkin Leaderboard\" value=\"Checkin Leaderboard\">\n                <button [routerLink]=\"['/']\" >Try Again!</button>\n        </form>\n</div>");
 
 /***/ }),
 
@@ -327,10 +327,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
+    { path: '', component: _game_game_component__WEBPACK_IMPORTED_MODULE_5__["GameComponent"] },
     { path: 'leaderboard', component: _leaderboard_leaderboard_component__WEBPACK_IMPORTED_MODULE_4__["LeaderboardComponent"] },
-    { path: 'game', component: _game_game_component__WEBPACK_IMPORTED_MODULE_5__["GameComponent"] },
-    { path: 'game/:score', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
+    // { path: 'game', component: GameComponent},
+    { path: 'checkin', component: _check_leaderboard_check_leaderboard_component__WEBPACK_IMPORTED_MODULE_3__["CheckLeaderboardComponent"] },
     { path: '*', pathMatch: 'full', redirectTo: '/' }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -606,7 +606,7 @@ let GameComponent = class GameComponent {
         else {
             console.log('game over');
             this._scoreService.postScore(this.score);
-            this._router.navigate(['/']);
+            this._router.navigate(['/checkin']);
         }
     }
     green(text) {
@@ -618,7 +618,7 @@ let GameComponent = class GameComponent {
         else {
             console.log('game over');
             this._scoreService.postScore(this.score);
-            this._router.navigate(['/']);
+            this._router.navigate(['/checkin']);
         }
     }
     blue(text) {
@@ -630,7 +630,7 @@ let GameComponent = class GameComponent {
         else {
             console.log('game over');
             this._scoreService.postScore(this.score);
-            this._router.navigate(['/']);
+            this._router.navigate(['/checkin']);
         }
     }
     yellow(text) {
@@ -642,7 +642,7 @@ let GameComponent = class GameComponent {
         else {
             console.log('game over');
             this._scoreService.postScore(this.score);
-            this._router.navigate(['/']);
+            this._router.navigate(['/checkin']);
         }
     }
     countdown() {
@@ -654,7 +654,7 @@ let GameComponent = class GameComponent {
             else {
                 clearInterval(this.interval);
                 this._scoreService.postScore(this.score);
-                this._router.navigate(['/']);
+                this._router.navigate(['/checkin']);
             }
         }, 1000);
     }

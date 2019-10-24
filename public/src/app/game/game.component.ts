@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
     } else {
           console.log('game over');
           this._scoreService.postScore(this.score);
-          this._router.navigate(['/']);
+          this._router.navigate(['/checkin']);
     }
   }
   green(text) {
@@ -50,7 +50,7 @@ export class GameComponent implements OnInit {
     } else {
           console.log('game over');
           this._scoreService.postScore(this.score);
-          this._router.navigate(['/']);
+          this._router.navigate(['/checkin']);
     }
   }
   blue(text) {
@@ -61,7 +61,7 @@ export class GameComponent implements OnInit {
     } else {
           console.log('game over');
           this._scoreService.postScore(this.score);
-          this._router.navigate(['/']);
+          this._router.navigate(['/checkin']);
     }
   }
   yellow(text) {
@@ -72,7 +72,7 @@ export class GameComponent implements OnInit {
     } else {
       console.log('game over');
       this._scoreService.postScore(this.score);
-      this._router.navigate(['/']);
+      this._router.navigate(['/checkin']);
     }
   }
   countdown() {
@@ -83,7 +83,7 @@ export class GameComponent implements OnInit {
       } else {
         clearInterval(this.interval);
         this._scoreService.postScore(this.score);
-        this._router.navigate(['/']);
+        this._router.navigate(['/checkin']);
       }
     }, 1000);
   }

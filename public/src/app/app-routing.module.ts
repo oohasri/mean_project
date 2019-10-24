@@ -6,10 +6,10 @@ import { GameComponent } from './game/game.component';
 
 
 const routes: Routes = [
-  { path: '',  component: CheckLeaderboardComponent},
+  { path: '',  component: GameComponent},
   { path: 'leaderboard', component: LeaderboardComponent},
-  { path: 'game', component: GameComponent},
-  { path: 'game/:score' , component: CheckLeaderboardComponent},
+  // { path: 'game', component: GameComponent},
+  { path: 'checkin' , component: CheckLeaderboardComponent},
   { path: '*', pathMatch: 'full', redirectTo: '/'}
 ];
 
