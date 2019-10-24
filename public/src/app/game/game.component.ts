@@ -23,6 +23,7 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
     this.text = this.random();
+    this.bgcolor = this.random().toLocaleLowerCase() + 'bgcolor';
     if (this.timer === 0) {
       this.countdown();
     }

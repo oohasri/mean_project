@@ -14,13 +14,15 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import bootstrap from 'bootstrap';
 import { GameComponent } from './game/game.component';
 import { ScoreService } from './score.service';
+import { ReadyComponent } from './ready/ready.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckLeaderboardComponent,
     LeaderboardComponent,
-    GameComponent
+    GameComponent,
+    ReadyComponent
   ],
   imports: [
     BrowserModule,

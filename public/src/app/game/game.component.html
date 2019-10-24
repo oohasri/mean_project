@@ -7,21 +7,20 @@
         <h3 class="display_inline">{{timer}}</h3>
         <h3 class="display_inline right">Score : {{score}}</h3>
     </div>
-    <div class="header">     
+    <div class="header {{ bgcolor}}">     
         <h1>{{ text }}</h1>
     </div>
     <div class="footer">
         <div class="block">
-            <div class="red" (click)="red(text)"></div>
-            <div class="blue" (click)="blue(text)"></div>
+            <div class="red btn redbgcolor" (click)="red(text)"></div>
+            <div class="blue btn bluebgcolor" (click)="blue(text)"></div>
         </div>
         <div class="block">
-            <div class="green" (click)="green(text)"></div>
-            <div class="yellow" (click)="yellow(text)"></div>
+            <div class="green btn greenbgcolor" (click)="green(text)"></div>
+            <div class="yellow btn yellowbgcolor" (click)="yellow(text)"></div>
         </div>
     </div>
 </div>
-
 
 
 <!-- <div class="container">
