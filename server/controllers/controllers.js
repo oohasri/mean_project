@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 
 module.exports = {
     retrive_all: function(req, res) {
-    	Game.find({}).sort({ score: -1}).limit(5)
+        // Game.find({}).sort({ score: -1}).limit(5)
+        Game.find({}).sort({ score: -1}).limit(5)
         .then(data => res.json(data))
         .catch(err => res.json(err));
     },
