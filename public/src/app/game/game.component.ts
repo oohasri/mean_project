@@ -14,6 +14,8 @@ export class GameComponent implements OnInit {
   score = 0;
   timer = 0;
   interval: any;
+  bgcolor: any;
+  // countdown: any;
   constructor(private _httpService: HttpService,
               private _route: ActivatedRoute,
               private _router: Router,
@@ -81,6 +83,7 @@ export class GameComponent implements OnInit {
     this.interval = setInterval( () => {
       if (this.timer !== 10) {
         this.timer = this.timer + 1;
+        // this.countdown = this.countdown === 0 ? 10 : this.countdown;
       } else {
         clearInterval(this.interval);
         this._scoreService.postScore(this.score);

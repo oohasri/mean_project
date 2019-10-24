@@ -18,6 +18,6 @@ export class ReadyComponent implements OnInit {
   }
   start() {
     console.log('start');
-    setInterval( () => this._router.navigate(['/game']), 3500 );
+    setTimeout( () => this._router.navigate(['/game']), 3500 );
   }
 }
