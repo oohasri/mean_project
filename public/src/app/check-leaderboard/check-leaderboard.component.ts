@@ -37,6 +37,7 @@ export class CheckLeaderboardComponent implements OnInit {
     const observable = this._httpService.create(this.user);
     observable.subscribe((data: any) => {
       console.log('data inserted');
+      this.user = { name: '', score: ''};
       this.getLeaderboard();
       console.log(data);
       if ('errors' in data) {
