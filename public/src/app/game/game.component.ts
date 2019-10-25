@@ -82,11 +82,11 @@ export class GameComponent implements OnInit {
   countdown() {
     console.log('*******', this.timer);
     this.interval = setInterval( () => {
-      if (this.timer !== 15) {
+      if (this.timer < 15) {
         this.timer = this.timer + 1;
         // this.countdown = this.countdown === 0 ? 10 : this.countdown;
       } else {
-        // clearInterval(this.interval);
+        clearInterval(this.interval);
         this._scoreService.postScore(this.score);
         this._router.navigate(['/checkin']);
       }
