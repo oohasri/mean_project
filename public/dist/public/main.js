@@ -705,7 +705,7 @@ let GameComponent = class GameComponent {
     }
     countdown() {
         console.log('*******', this.timer);
-        this.interval = setTimeout(() => {
+        this.interval = setInterval(() => {
             if (this.timer !== 15) {
                 this.timer = this.timer + 1;
                 // this.countdown = this.countdown === 0 ? 10 : this.countdown;
