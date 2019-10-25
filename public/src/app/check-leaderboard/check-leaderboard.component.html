@@ -1,10 +1,23 @@
 
-<div>
-        <form (submit)="onCreate()">
-                <div *ngIf="top"><h2>You are in top 5</h2></div>
+<div class="container">
+
+                <div *ngIf="top">
+
+                        <h2>You are in top 5</h2>
+                        <!-- <div class="party" title=":party:">
+                                <a title=":party:" href="https://abstract.com">
+                                        <ul>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                        </ul>
+                                </a>
+                        </div>                            -->
+                </div>
                 <h6 *ngIf="score">SCORE</h6>
-                <h1>{{score}}</h1>
-                <h6 class="inline">BEST</h6><h4 class="inline">{{ bestscore }}</h4>
+                <h1 class="bigtext">{{score}}</h1>
+                <h3 class="inline">BEST SCORE {{ bestscore }}</h3>
                 <h1></h1>
                 <div *ngIf="isError">        
                         <h6 *ngIf="errors.name">{{errors.name.message}}</h6>
@@ -13,29 +26,33 @@
                 </div>
                 <!-- <div *ngIf=(!name.valid)>{{ name.errors | json }}</div> -->
                 <!-- <p>{{ user | json}}</p> -->
-                <input type="text" name="name" 
-                required 
-                minlength="3" 
-                [(ngModel)]="user.name"
-                #name = "ngModel"
-                placeholder="NAME"/>
-                <input type="submit" name="Check Leaderboard" value="SAVE">
                 <!-- <button [routerLink]="['/game']" >PLAY AGAIN!</button> -->
-        </form>
-
+        
+        
         <!-- <h1>Leader Board</h1>    -->
-        <div *ngIf="scores">
+        <div *ngIf="scores.length!=0">
                 <table id="table">
                         <tr>
-                        <th>Name</th>
-                        <th>Score</th>
+                                <th>Name</th>
+                                <th>Score</th>
                         </tr>
                         <tr *ngFor="let score of scores">
-                        <td>{{score.name}}</td>
-                        <td>{{score.score}}</td>
+                                <td>{{score.name}}</td>
+                                <td>{{score.score}}</td>
                         </tr>
                 </table>
         </div>
-        <button class="max_width" [routerLink]="['/game']" >PLAY AGAIN!</button>
+        <form (submit)="onCreate()">
+        <input type="text" name="name" 
+        required 
+        minlength="3" 
+        [(ngModel)]="user.name"
+        #name = "ngModel"
+        placeholder="Enter your name"
+        id="input" />
+        <input type="submit" name="Check Leaderboard" value="SAVE">
+        </form>
+
+        <button class="playbutton" [routerLink]="['/game']" >PLAY AGAIN</button>
 </div>
 

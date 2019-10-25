@@ -6,7 +6,6 @@
 
 input[type=text], select {
     /* width: 100%; */
-    width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -22,15 +21,16 @@ input[type=text], select {
     background-color: #37c0ce;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
   }
   
   input[type=submit]:hover, button {
     /* background-color: #45a049; */
     background-color: #37c0ce;
+
   }
 
   form, table {
@@ -46,6 +46,7 @@ input[type=text], select {
     /* background-color: #f2f2f2; */
     background-color: #32386D;
     text-align: center;
+    /* height: 100%; */
   }
 
   h3, h1, h6, h4 {
@@ -109,5 +110,55 @@ input[type=text], select {
     }
   }
 
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    font-weight: inherit;
+    font-size: 1em;
+  }
   
+  body {
+    background-color: #3D3E6F;
+    /* height: 100%; */
+  }
 
+  .container {
+    height: 100vh;
+    font-size: 20px;
+    font-style: ;
+    background-color: #3D3E6F
+  }
+  
+.playbutton {
+  border-radius:25px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  margin: 10px;
+  width: 95%;
+}  
+  
+.bigtext {
+  font-size: 100px;
+}
+
+#input {
+  border: none;
+  color: white;
+  background: none;
+  border-bottom: 1px solid white;
+}
+
+#input::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.white {
+  color: white;
+}

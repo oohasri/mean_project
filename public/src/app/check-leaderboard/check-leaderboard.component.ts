@@ -57,7 +57,7 @@ export class CheckLeaderboardComponent implements OnInit {
         this.scores.push(score);
         // this.topscores.push(score.score);
       }
-      // console.log(this.topscores);
+      console.log('test', this.scores);
       if (this.score) {
         for (const top5scores of this.scores) {
           if (this.score >= top5scores.score) {

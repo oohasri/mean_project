@@ -26,6 +26,7 @@ export class GameComponent implements OnInit {
     this.colors = ['Blue', 'Red', 'Yellow', 'Green'];
     this.text = this.random();
     this.bgcolor = this.random().toLocaleLowerCase() + 'bgcolor';
+    this.textcolor = this.random().toLocaleLowerCase() + 'textcolor';
     if (this.timer === 0) {
       this.countdown();
     }
@@ -81,7 +82,7 @@ export class GameComponent implements OnInit {
   countdown() {
     console.log('*******', this.timer);
     this.interval = setInterval( () => {
-      if (this.timer !== 10) {
+      if (this.timer !== 15) {
         this.timer = this.timer + 1;
         // this.countdown = this.countdown === 0 ? 10 : this.countdown;
       } else {

@@ -13,7 +13,7 @@
 .header {
     height: 50%;
     border: 1px solid white;
-    background-color: gray;
+    background-color: white;
 }
 
 .footer {
@@ -55,12 +55,31 @@
     background: #F4D302;
 }
 
+.redtextcolor{
+    color: #FD3359;
+}
+
+.greentextcolor {
+    color: #1c9c73;
+}
+
+.bluetextcolor {
+    color: #21BDFF;
+}
+
+.yellowtextcolor {
+    color: #F4D302;
+}
+
 h1 {
     text-align: center;
-    margin: 50% auto;
-    margin: 47% auto;
     font-size: 90px;
     color: #fff;
+    position: absolute;
+    top: 24%;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 }
 
 .top {
@@ -79,12 +98,13 @@ h1 {
     display: inline-block;
     vertical-align: top;
     width: 85%;
-    padding: 2%;
+    padding: 3%;
 }
 
 .right {
     text-align-last: end;
 }
+
 
 .btn {
     position: relative;
@@ -179,7 +199,6 @@ h1 {
 .btn:disabled::after {
     opacity: 0;
 }
-
   
   #countdown {
     position: relative;
@@ -212,7 +231,7 @@ h1 {
     stroke-width: 2px;
     stroke: black;
     fill: none;
-    animation: countdown 10s linear infinite forwards;
+    animation: countdown 15s linear infinite forwards;
   }
   
   @keyframes countdown {
